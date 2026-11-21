@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <title>J.A.R.V.I.S.</title>
+  <style>
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html, body { margin: 0; height: 100%; background: #02070d; color: #9fe8ff;
+      font-family: "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    canvas { position: fixed; inset: 0; width: 100%; height: 100%; }
+    #top { position: fixed; top: 0; left: 0; right: 0; padding: calc(env(safe-area-inset-top) + 14px) 16px 0;
+      display: flex; justify-content: space-between; align-items: center; letter-spacing: 3px; font-size: 13px; }
+    #status { color: #00d4ff; text-shadow: 0 0 8px #00d4ff; }
+    #cfg { background: none; border: 1px solid #1b5a70; color: #7fdcff; border-radius: 8px; padding: 6px 10px; font-size: 16px; }
+    #log { position: fixed; left: 14px; right: 14px; bottom: calc(env(safe-area-inset-bottom) + 96px);
+      font-size: 14px; line-height: 1.4; max-height: 32vh; overflow: hidden; }
+    .l { margin: 4px 0; opacity: .9; }
+    .l b { color: #00d4ff; font-weight: 600; letter-spacing: 1px; font-size: 12px; }
+    .l.err { color: #ff6b6b; } .l.err b { color: #ff6b6b; }
+    #go { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(env(safe-area-inset-bottom) + 28px);
+      background: rgba(0, 212, 255, .08); border: 1px solid #00d4ff; color: #00d4ff; letter-spacing: 4px;
+      padding: 14px 44px; border-radius: 30px; font-size: 15px; box-shadow: 0 0 18px rgba(0, 212, 255, .35); }
+    #go:disabled { opacity: .4; }
+    #set { position: fixed; inset: 0; background: rgba(2, 7, 13, .96); display: none; padding: 60px 22px 22px; z-index: 5; overflow: auto; }
+    #set h2 { margin: 0 0 14px; letter-spacing: 3px; font-weight: 500; color: #00d4ff; }
+    #set label { display: block; margin: 14px 0 6px; font-size: 13px; color: #7fdcff; }
+    #set input { width: 100%; padding: 12px; background: #06141d; border: 1px solid #1b5a70; color: #d8f6ff; border-radius: 8px; font-size: 15px; }
+    #set small { display: block; margin-top: 6px; color: #5d8ea0; font-size: 12px; }
+    #set button { margin-top: 22px; margin-right: 10px; padding: 12px 24px; background: rgba(0, 212, 255, .1);
+      border: 1px solid #00d4ff; color: #00d4ff; border-radius: 10px; font-size: 15px; }
+  </style>
+</head>
+<body>
+  <canvas id="hud"></canvas>
+  <div id="top"><span id="status">OFFLINE</span><button id="cfg">⚙</button></div>
+  <div id="log"></div>
+  <button id="go">AVVIA</button>
+
+  <div id="set">
+    <h2>IMPOSTAZIONI</h2>
+    <label>Chiave Gemini</label>
+    <input id="k1" type="password" autocomplete="off" placeholder="AIza..." />
+    <small>Da https://aistudio.google.com/apikey (una chiave nuova). Resta solo su questo telefono.</small>
+    <label>Chiave Picovoice (AccessKey)</label>
+    <input id="k2" type="password" autocomplete="off" />
+    <small>Gratis da https://console.picovoice.ai</small>
+    <button id="save">SALVA</button><button id="close">CHIUDI</button>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
