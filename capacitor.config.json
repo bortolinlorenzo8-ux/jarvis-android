@@ -1,0 +1,9 @@
+{
+  "appId": "com.bortolin.jarvis",
+  "appName": "JARVIS",
+  "webDir": "dist",
+  "backgroundColor": "#02070d",
+  "plugins": {
+    "CapacitorHttp": { "enabled": true }
+  }
+}
